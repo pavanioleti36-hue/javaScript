@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Super Market Billing App</title>
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+
+<div class="container mt-5">
+
+    <h1 class="text-center mb-5">****Super Market Billing App****</h1>
+
+    <!-- Input Fields -->
+    <div class="mb-3">
+        <label for="tq" class="form-label">Total Quantity</label>
+        <input type="number" class="form-control" id="tq" placeholder="Enter Quantity">
+    </div>
+
+    <div class="mb-3">
+        <label for="p" class="form-label">Price</label>
+        <input type="number" class="form-control" id="p" placeholder="Enter Price">
+    </div>
+
+    <button type="button" class="btn btn-primary" onclick="calc()">
+        Calc
+    </button>
+
+    <!-- Result Table -->
+    <div class="mt-4">
+        <table class="table table-bordered table-striped">
+            <tr>
+                <th>Total Quantity</th>
+                <td id="t1"></td>
+            </tr>
+
+            <tr>
+                <th>Price</th>
+                <td id="p1"></td>
+            </tr>
+
+            <tr>
+                <th>Total</th>
+                <td id="t3"></td>
+            </tr>
+
+            <tr>
+                <th>GST (18%)</th>
+                <td id="gst"></td>
+            </tr>
+
+            <tr>
+                <th>Amount</th>
+                <td id="amt"></td>
+            </tr>
+        </table>
+    </div>
+
+</div>
+
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+
+<script>
+function calc() {
+
+    let qty = parseInt(document.getElementById("tq").value);
+    let price = parseInt(document.getElementById("p").value);
+
+    
+    let total = qty * price;
+    let gst = total * 0.18;
+    let amount = total + gst;
+
+   
+    document.getElementById("t1").innerHTML = qty;
+    document.getElementById("p1").innerHTML =  price.toFixed(2);
+    document.getElementById("t3").innerHTML =  total.toFixed(2);
+    document.getElementById("gst").innerHTML =  gst.toFixed(2);
+    document.getElementById("amt").innerHTML =  amount.toFixed(2);
+}
+</script>
+
+</body>
+</html>
